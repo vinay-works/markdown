@@ -60,7 +60,7 @@ const Indexpage = () => {
         `/api/markdown-backend?docsId=${docsId}`
       );
 
-      if (response.data.markdown == null) {
+      if (response.data.markdown === null) {
         toast.error("Please Paste a valid public Google Docs link.");
         return;
       }
