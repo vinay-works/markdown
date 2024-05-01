@@ -145,7 +145,6 @@ const Indexpage = () => {
             >
               {loading? (
                 <div className="flex items-center">
-                  {/* Existing loading animation */}
                 </div>
               ) : (
                 "Convert To Markdown"
@@ -276,7 +275,6 @@ const Indexpage = () => {
           <h2>🤔 Questions or suggestions?</h2>
           <h2 className="lg:ml-1">Contact Us</h2>
         </div>
-        {/* Visible on medium and larger screens */}
         <div className="hidden lg:flex justify-center mt-2">
           <p className="text-black">Found a bug or need more features?</p>
           <div className="text-blue-500 hover:text-blue-700 flex gap-2 items-center ml-2">
@@ -284,7 +282,6 @@ const Indexpage = () => {
             <a href="mailto:hey@typeflo.io">hey@typeflo.io</a>
           </div>
         </div>
-        {/* Visible on small screens */}
         <div className="lg:hidden mt-2">
           <div className="text-black flex flex-col items-center justify-center">
             <p className="text-center">Found a bug or need more features?</p>
