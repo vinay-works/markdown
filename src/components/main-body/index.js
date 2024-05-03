@@ -56,16 +56,22 @@ const Indexpage = () => {
   const convertToMarkdown = async (docsId) => {
     
     try {
-      const response = await axios.get(
-        `/api/markdown-backend?docsId=${docsId}`
-      );
+      const res = await fetch(`/api/download?docsId=${docsId}`, {
+        method: "GET",
+      });
 
-      if (response.data.markdown === null) {
+      if (!res.ok) {
         toast.error("Please Paste a valid public Google Docs link.");
         return;
       }
-      console.log(response.data.markdown);
-      setMarkdown(response.data.markdown);
+      const data = await res.json();
+      
+      if (!data.markdown) {
+        toast.error("Please Paste a valid public Google Docs link.");
+        return;
+      }
+      console.log(data.markdown);
+      setMarkdown(data.markdown);
       toast.success("Conversion successful!");
     } catch (error) {
       console.error("Error:", error.message);
