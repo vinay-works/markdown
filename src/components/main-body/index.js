@@ -56,7 +56,7 @@ const Indexpage = () => {
   const convertToMarkdown = async (docsId) => {
     
     try {
-      const res = await fetch(`/api/download?docsId=${docsId}`, {
+      const res = await fetch(`/api/markdown-backend?docsId=${docsId}`, {
         method: "GET",
       });
 
