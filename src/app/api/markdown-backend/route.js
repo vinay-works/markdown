@@ -1,9 +1,8 @@
 import * as mammoth from "mammoth";
 import axios from "axios";
-import { Marcellus } from "next/font/google";
 
 // For Node.js
-import TurndownService from "turndown";
+import * as html2md from 'html-markdown';
 
 
 
@@ -12,9 +11,7 @@ export async function GET(request) {
   const docsId = searchParams.get("docsId");
 
   const url = `https://docs.google.com/feeds/download/documents/export/Export?id=${docsId}&exportFormat=docx`;
-  var result = await axios
-    .get(url, { responseType: "arraybuffer" })
-    .catch((error) => {
+  var result = await axios.get(url, { responseType: "arraybuffer" }).catch((error) => {
       return error.message;
     });
 
@@ -23,8 +20,6 @@ export async function GET(request) {
   if (result.data) {
     buffers.push(Buffer.from(result.data));
     var buffer = Buffer.concat(buffers);
-    const images = [];
-
     var options = {
       styleMap: [
         "strike => del",
@@ -54,10 +49,8 @@ export async function GET(request) {
     if (!markdown) {
       return Response.json({ error: true, markdown: null });
     }
-    var turndownService = new TurndownService();
-    turndownService.keep(['del', 'ins', 'u'])
-    var markdowndata = turndownService.turndown(markdown.value);
-    return Response.json({ error: false, markdown: markdowndata});
+    var md1 = html2md.html2mdFromString(markdown.value);
+    return Response.json({ error: false, markdown: md1});
   } else {
     return Response.json({ error: true, markdown: null });
   }
