@@ -42,10 +42,10 @@ const Indexpage = () => {
     }
 
   
-    setIsSubmitted(true); // Set isSubmitted to true when the form is submitted
-    setIsConverting(true); // Start conversion process
-    setLoading(true); // Set loading to true before starting the conversion
-    convertToMarkdown(docsId); // Pass setLoading as an argument
+    setIsSubmitted(true); 
+    setIsConverting(true);
+    setLoading(true); 
+    convertToMarkdown(docsId); 
   };
 
   const copyToClipboard = () => {
@@ -188,7 +188,7 @@ const Indexpage = () => {
               <textarea
                 value={markdown}
                 readOnly
-                className="w-full h-64 p-2 bg-white text-black"
+                className="overflow-x-hidden w-full h-64 p-2 bg-white text-black"
               />
             </div>
           </>
