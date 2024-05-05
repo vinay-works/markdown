@@ -1,7 +1,7 @@
 import * as mammoth from "mammoth";
 import axios from "axios";
 
-// For Node.js
+
 import * as html2md from 'html-markdown';
 
 

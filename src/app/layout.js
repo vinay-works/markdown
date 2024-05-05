@@ -11,7 +11,7 @@ export const metadata = {
     title: "Convert Google Docs To Markdown - FREE!",
     description:
       "Effortlessly convert  Google Docs  to markdown with our free tool!  Your privacy is our priority; we only need the Google Docs link for extraction.",
-    url: "https://downloadimagegoogledocs.com",
+    // url: "https://downloadimagegoogledocs.com",
     siteName: "Download Image Google Docs",
     images: [
       {
